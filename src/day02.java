@@ -15,7 +15,7 @@ public class day02 {
                 safe++;
                 safeDampened++;
             } else {
-                for(int i = 0; i < report.size(); i++) {
+                for (int i = 0; i < report.size(); i++) {
                     int removed = report.remove(i);
                     if (isSafe(report)) {
                         safeDampened++;

@@ -12,7 +12,7 @@ public class FileIO {
         try {
             file = new Scanner(new File(filename));
             List<String> out = new ArrayList<>();
-            while(file.hasNextLine()) { out.add(file.nextLine()); }
+            while (file.hasNextLine()) { out.add(file.nextLine()); }
             file.close();
             return out;
         } catch (FileNotFoundException e) {
