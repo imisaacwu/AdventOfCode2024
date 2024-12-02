@@ -16,7 +16,7 @@ $(DAYS): %: src/day%.java input/day%.in
 
 all: $(patsubst src/day%.java, input/day%.in, $(wildcard src/day*.java))
 	javac src/day*.java -d out/
-	for day in $(DAYS); do java -cp out/ $$day; done
+	for day in $(DAYS); do java -cp out/ day$$day; done
 
 help:
 	@echo 'usage: make [TARGET..]'

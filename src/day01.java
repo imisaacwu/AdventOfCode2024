@@ -27,6 +27,7 @@ public class day01 {
             sim += l * counts.getOrDefault(l, 0);
         }
 
+        System.out.println("Day 01:");
         System.out.printf("Part 1: %d\n", sum);
         System.out.printf("Part 2: %d\n", sim);
     }

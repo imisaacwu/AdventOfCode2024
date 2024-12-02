@@ -14,7 +14,6 @@ public class day02 {
             if (isSafe(report)) {
                 safe++;
                 safeDampened++;
-                continue;
             } else {
                 for(int i = 0; i < report.size(); i++) {
                     int removed = report.remove(i);
@@ -27,6 +26,7 @@ public class day02 {
             }
         }
 
+        System.out.println("Day 02:");
         System.out.printf("Part 1: %d\n", safe);
         System.out.printf("Part 2: %d\n", safeDampened);
     }
@@ -35,7 +35,7 @@ public class day02 {
         boolean increasing = report.get(0) < report.get(1);
         for (int i = 1; i < report.size(); i++) {
             int diff = Math.abs(report.get(i-1) - report.get(i));
-            if (diff < 0 || diff > 3 ||
+            if (diff <= 0 || diff > 3 ||
                 (increasing && report.get(i-1) > report.get(i)) ||
                 (!increasing && report.get(i-1) < report.get(i))) {
                 return false;
