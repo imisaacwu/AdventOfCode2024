@@ -9,7 +9,7 @@ public class Coord extends Tuple.Pair<Integer, Integer> {
     public int c() { return this.v1(); }
 
     public Coord relative(Direction d, int n) {
-        return new Coord(this.v0() + n * d.Δr, this.v1() + n * d.Δc);
+        return new Coord(r() + (n * d.Δr()), c() + (n * d.Δc()));
     }
     public Coord relative(Direction d) { return relative(d, 1); }
 }
