@@ -50,8 +50,8 @@ public class Grid<T> {
                 for (int r = 1; r <= radius; r++) {
                     list.add(get(origin.relative(d, r)));
                 }
+                matches.add(list);
             }
-            matches.add(list);
         }
 
         return matches;
