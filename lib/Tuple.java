@@ -53,7 +53,7 @@ public class Tuple {
         public T0 v0() { return (T0) arr[0]; }
 
         @SuppressWarnings("unchecked")
-        public T1 v1() { return (T1) arr[0]; }
+        public T1 v1() { return (T1) arr[1]; }
 
         @Override
         public int hashCode() {
