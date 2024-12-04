@@ -18,11 +18,43 @@ public class Grid<T> {
     public int getHeight() { return grid.size(); }
     public int getWidth() { return grid.get(0).size(); }
 
+    public T get(Coord c) { return get(c.r(), c.c()); }
     public T get(int row, int col) { return grid.get(row).get(col); }
+
+    public void set(Coord c, T val) { set(c.r(), c.c(), val); }
     public void set(int row, int col, T val) { grid.get(row).set(col, val); }
 
+    public boolean isValid(Coord c) { return isValid(c.r(), c.c()); }
     public boolean isValid(int row, int col) {
         return 0 <= row && row < getHeight() && 0 <= col && col < getWidth();
+    }
+
+    public Coord find(T target) {
+        for (int r = 0; r < getHeight(); r++) {
+            for (int c = 0; c < getWidth(); c++) {
+                if(get(r, c).equals(target)) {
+                    return new Coord(r, c);
+                }
+            }
+        }
+        return new Coord(-1, -1);
+    }
+
+    public List<List<T>> radialSearch(Coord origin, int radius, Direction[] directions) {
+        List<List<T>> matches = new ArrayList<>();
+        List<T> list;
+
+        for (Direction d : directions) {
+            list = new ArrayList<>();
+            if (isValid(origin.relative(d, radius))) {
+                for (int r = 1; r <= radius; r++) {
+                    list.add(get(origin.relative(d, r)));
+                }
+            }
+            matches.add(list);
+        }
+
+        return matches;
     }
 
     public Grid<T> rotateCW() {
