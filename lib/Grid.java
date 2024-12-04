@@ -96,7 +96,11 @@ public class Grid<T> {
     public String toString() {
         StringBuilder s = new StringBuilder();
         for (List<T> row : grid) {
-            s.append(row.toString().replaceAll("[\\[\\],]", "")).append("\n");
+            for (T val : row) {
+                s.append(val.toString()).append(" ");
+            }
+            s.deleteCharAt(s.length() - 1);
+            s.append("\n");
         }
         return s.toString();
     }
