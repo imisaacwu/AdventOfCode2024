@@ -22,7 +22,7 @@ public class day06 {
             visited.add(curr);
             Coord ahead = curr.relative(dir);
             if (g.isValid(ahead) && g.get(ahead) == '#') {
-                dir = Direction.right(dir);
+                dir = Direction.right90(dir);
             } else {
                 curr = curr.relative(dir);
             }
@@ -51,7 +51,7 @@ public class day06 {
             Coord ahead = curr.relative(dir);
 
             if (g.isValid(ahead) && g.get(ahead) == '#') {
-                dir = Direction.right(dir);
+                dir = Direction.right90(dir);
                 if (turns.contains(new Pair<>(curr, dir))) { return true; }
                 turns.add(new Pair<>(curr, dir));
             } else {

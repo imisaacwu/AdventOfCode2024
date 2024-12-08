@@ -40,7 +40,7 @@ public class Grid<T> {
         return new Coord(-1, -1);
     }
 
-    public List<List<T>> radialSearch(Coord origin, int radius, Direction[] directions) {
+    public List<List<T>> radialSearch(Coord origin, int radius, List<Direction> directions) {
         List<List<T>> matches = new ArrayList<>();
         List<T> list;
 
