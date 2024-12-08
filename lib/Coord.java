@@ -12,4 +12,8 @@ public class Coord extends Tuple.Pair<Integer, Integer> {
         return new Coord(r() + (n * d.Δr()), c() + (n * d.Δc()));
     }
     public Coord relative(Direction d) { return relative(d, 1); }
+
+    public Direction distance(Coord other) {
+        return new Direction(other.r() - r(), other.c() - c());
+    }
 }
