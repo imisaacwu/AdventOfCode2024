@@ -40,6 +40,18 @@ public class Grid<T> {
         return new Coord(-1, -1);
     }
 
+    public List<Coord> findAll(T target) {
+        List<Coord> list = new ArrayList<>();
+        for (int r = 0; r < getHeight(); r++) {
+            for (int c = 0; c < getWidth(); c++) {
+                if(get(r, c).equals(target)) {
+                    list.add(new Coord(r, c));
+                }
+            }
+        }
+        return list;
+    }
+
     public List<List<T>> radialSearch(Coord origin, int radius, List<Direction> directions) {
         List<List<T>> matches = new ArrayList<>();
         List<T> list;

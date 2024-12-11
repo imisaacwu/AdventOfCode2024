@@ -9,13 +9,9 @@ public interface Divider<T> {
     List<T> toList(String s);
     
     public static class Int implements Divider<Integer> {
-        public List<Integer> toList(String s, String delim) {
-            return Arrays.stream(s.split(delim)).mapToInt(c -> Integer.parseInt(c)).boxed().collect(Collectors.toList());
-        }
-    
         @Override
         public List<Integer> toList(String s) {
-            return toList(s, " ");
+            return Arrays.stream(s.split("")).mapToInt(c -> Integer.parseInt(c)).boxed().collect(Collectors.toList());
         }
     }
 

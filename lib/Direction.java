@@ -18,7 +18,7 @@ public class Direction extends Coord {
 
     public static Direction left(Direction dir) {
         int i = ALL_DIRECTIONS.indexOf(dir) - 1;
-        return ALL_DIRECTIONS.get(i < 0 ? ALL_DIRECTIONS.size() : i);
+        return ALL_DIRECTIONS.get(i < 0 ? ALL_DIRECTIONS.size() - 1 : i);
     }
     public static Direction left90(Direction dir) {
         return new Direction(-1 * dir.c(), dir.r());
