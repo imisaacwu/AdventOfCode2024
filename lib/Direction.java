@@ -41,4 +41,8 @@ public class Direction extends Coord {
 
     public int Δr() { return this.r(); }
     public int Δc() { return this.c(); }
+
+    public double magnitude() {
+        return Math.sqrt(Δr() * Δr() + Δc() * Δc());
+    }
 }
