@@ -5,6 +5,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Grid<T> {
+    public static <T> Grid<T> fill(int rows, int cols, T fill) {
+        Grid<T> g = new Grid<>(rows, cols);
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                g.grid.get(r).add(fill);
+            }
+        }
+        return g;
+    }
+
     public List<List<T>> grid;
 
     public Grid(List<String> in, Divider<T> d) {
@@ -14,6 +24,13 @@ public class Grid<T> {
         }
     }
     public Grid(List<List<T>> g) { grid = g; }
+    public Grid(int rows, int cols) {
+        grid = new ArrayList<>();
+        for (int r = 0; r < 103; r++) {
+            List<T> row = new ArrayList<>(cols);
+            grid.add(row);
+        }
+    }
 
     public int getHeight() { return grid.size(); }
     public int getWidth() { return grid.get(0).size(); }
