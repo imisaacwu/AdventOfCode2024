@@ -7,7 +7,15 @@ public class day14 {
     public static void main(String[] args) {
         List<String> input = FileIO.read("input/day14.in");
         List<Robot> robots = new ArrayList<>();
-        Grid<List<Robot>> g = Grid.fill(103, 101, new ArrayList<>());
+        Grid<List<Robot>> g = new Grid<>(new ArrayList<>());
+
+        for (int r = 0; r < 103; r++) {
+            List<List<Robot>> row = new ArrayList<>();
+            for (int c = 0; c < 101; c++) {
+                row.add(new ArrayList<>());
+            }
+            g.grid.add(row);
+        }
 
         for (String s : input) {
             String[] p = s.split(" ")[0].split("=")[1].split(",");
