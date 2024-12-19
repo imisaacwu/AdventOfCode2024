@@ -55,7 +55,7 @@ public class Graph<T> {
         return nodes.get(from).neighbors.get(nodes.get(to));
     }
 
-    public Set<Node<T>> dijkstra(T from) {
+    public Map<T, Node<T>> dijkstra(T from) {
         Set<Node<T>> finished = new HashSet<>();
         PriorityQueue<Node<T>> pq = new PriorityQueue<>(nodes.size());
 
@@ -83,14 +83,18 @@ public class Graph<T> {
             finished.add(node);
         }
 
-        return finished;
+        Map<T, Node<T>> map = new HashMap<>();
+        for (Node<T> node : finished) {
+            map.put(node.v0(), node);
+        }
+
+        return map;
     }
 
     public long dijkstra(T from, T to) {
-        for (Node<T> node : dijkstra(from)) {
-            if (nodes.get(to).equals(node)) {
-                return node.dist;
-            }
+        Map<T, Node<T>> map = dijkstra(from);
+        if (map.get(to) != null) {
+            return map.get(to).dist;
         }
         return -1;
     }

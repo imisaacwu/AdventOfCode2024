@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
@@ -46,17 +47,21 @@ public class day16 {
         Pair<Coord, Direction> start = new Pair<>(g.find('S'), Direction.E);
         Coord end = g.find('E');
 
+        Map<Pair<Coord, Direction>, Node<Pair<Coord, Direction>>> map = graph.dijkstra(start);
         long min = Long.MAX_VALUE;
         // Check all 4 possible end positions
         for (Direction d : Direction.CARDINAL_DIRECTIONS) {
-            min = Math.min(min, graph.dijkstra(start, new Pair<>(end, d)));
+            min = Math.min(min, map.get(new Pair<>(end, d)).dist);
         }
 
         Set<Coord> tiles = new HashSet<>();
         Stack<Node<Pair<Coord, Direction>>> stack = new Stack<>();
         // Search for end node
-        for (Node<Pair<Coord, Direction>> node : graph.dijkstra(start)) {
-            if (node.v0().v0().equals(end) && node.dist == min) { stack.push(node); }
+        for (Direction d : Direction.CARDINAL_DIRECTIONS) {
+            if (map.get(new Pair<>(end, d)).dist == min) {
+                stack.push(map.get(new Pair<>(end, d)));
+                break;
+            }
         }
 
         // Walk backwards from the end, keep track of unique tiles
