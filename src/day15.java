@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import lib.*;
+import file.FileIO;
+import grid.Divider;
+import grid.Grid;
+import structures.Coord;
+import structures.Direction;
 
 public class day15 {
     public static void main(String[] args) {

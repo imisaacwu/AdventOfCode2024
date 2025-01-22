@@ -1,6 +1,6 @@
 import java.util.List;
 
-import lib.*;
+import file.FileIO;
 
 public class day$DAY {
     public static void main(String[] args) {

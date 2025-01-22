@@ -4,8 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import lib.*;
-import lib.Tuple.Pair;
+import file.FileIO;
+import grid.Grid;
+import structures.Coord;
+import structures.Direction;
+import structures.Tuple.Pair;
 
 public class day18 {
     public static final int L = 70;
@@ -58,7 +61,7 @@ public class day18 {
             if (p.v0().equals(new Coord(L, L))) {
                 min = Math.min(min, p.v1().size());
             }
-            for (Direction d : Direction.CARDINAL_DIRECTIONS) {
+            for (Direction d : Direction.CARDINAL) {
                 Coord c = p.v0().relative(d);
                 if (g.isValid(c) && !visited.contains(c) && g.get(c) != '#') {
                     visited.add(c);

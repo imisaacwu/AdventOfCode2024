@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import lib.FileIO;
+import file.FileIO;
 
 public class day11 {
     public static void main(String[] args) {

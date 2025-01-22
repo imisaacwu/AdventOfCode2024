@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import lib.FileIO;
+import file.FileIO;
 
 public class day09 {
     public static void main(String[] args) {

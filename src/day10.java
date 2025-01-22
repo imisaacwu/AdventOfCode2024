@@ -2,11 +2,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import lib.Coord;
-import lib.Direction;
-import lib.Divider;
-import lib.FileIO;
-import lib.Grid;
+import file.FileIO;
+import grid.Divider;
+import grid.Grid;
+import structures.Coord;
+import structures.Direction;
 
 public class day10 {
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class day10 {
         int score = 0, trails = 0;
         for (Coord h : heads) {
             Set<Coord> nines = new HashSet<>();
-            for (Direction d : Direction.CARDINAL_DIRECTIONS) {
+            for (Direction d : Direction.CARDINAL) {
                 trails += explore(g, h, d, nines);
             }
             score += nines.size();
@@ -36,7 +36,7 @@ public class day10 {
                 return 1;
             } else {
                 int trails = 0;
-                for (Direction dir : Direction.CARDINAL_DIRECTIONS) {
+                for (Direction dir : Direction.CARDINAL) {
                     trails += explore(g, c.relative(d), dir, nines);
                 }
                 return trails;

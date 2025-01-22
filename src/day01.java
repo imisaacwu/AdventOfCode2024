@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-import lib.FileIO;
+import file.FileIO;
 
 public class day01 {
     public static void main(String[] args) {

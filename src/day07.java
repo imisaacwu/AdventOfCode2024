@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import lib.FileIO;
+import file.FileIO;
 
 public class day07 {
     public static void main(String[] args) {

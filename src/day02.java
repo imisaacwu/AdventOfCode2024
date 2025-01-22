@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import lib.FileIO;
+import file.FileIO;
 
 public class day02 {
     public static void main(String[] args) {

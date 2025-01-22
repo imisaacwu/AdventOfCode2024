@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import lib.Coord;
-import lib.Direction;
-import lib.Divider;
-import lib.FileIO;
-import lib.Grid;
+import file.FileIO;
+import grid.Divider;
+import grid.Grid;
+import structures.Coord;
+import structures.Direction;
 
 public class day04 {
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class day04 {
             for (int c = 0; c < g.getWidth(); c++) {
                 if (g.get(r, c) == 'X') {
                     List<List<Character>> matches = g.radialSearch(
-                        new Coord(r, c), 3, Direction.ALL_DIRECTIONS);
+                        new Coord(r, c), 3, Direction.ALL);
                     for (List<Character> list : matches) {
                         if(list.toString().replaceAll("[\\[\\], ]", "").equals("MAS")) {
                             xmas++;
@@ -27,7 +27,7 @@ public class day04 {
                 }
                 if (g.get(r, c) == 'A') {
                     List<List<Character>> matches = g.radialSearch(
-                        new Coord(r, c), 1, Direction.ORDINAL_DIRECTIONS);
+                        new Coord(r, c), 1, Direction.ORDINAL);
                     List<String> validMatches = new ArrayList<>(Arrays.asList("MSSM", "MMSS", "SMMS", "SSMM"));
                     if(validMatches.contains(matches.toString().replaceAll("[\\[\\], ]", ""))) {
                         mas++;

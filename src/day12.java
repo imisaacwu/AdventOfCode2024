@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import lib.Coord;
-import lib.Direction;
-import lib.Divider;
-import lib.FileIO;
-import lib.Grid;
+import file.FileIO;
+import grid.Divider;
+import grid.Grid;
+import structures.Coord;
+import structures.Direction;
 
 public class day12 {
     public static void main(String[] args) {
@@ -94,7 +94,7 @@ public class day12 {
                 // Default all 4 sides of a plot count towards the perimeter
                 result += 4;
                 // Subtract one for every side that borders a plot in the same region
-                for (List<Character> side : g.radialSearch(c, 1, Direction.CARDINAL_DIRECTIONS)) {
+                for (List<Character> side : g.radialSearch(c, 1, Direction.CARDINAL)) {
                     if (g.get(c) == side.get(0)) { result--; }
                 }
             }
@@ -107,7 +107,7 @@ public class day12 {
 
             // Using a similar algorithm for constructing "Regions" of Edges as above
             for (Coord c : plots) {
-                for (Direction d : Direction.CARDINAL_DIRECTIONS) {
+                for (Direction d : Direction.CARDINAL) {
                     // Skip edges that border plots in the same region
                     Coord edge = c.relative(d);
                     if (g.isValid(edge) && g.get(edge) == g.get(c)) { continue; }

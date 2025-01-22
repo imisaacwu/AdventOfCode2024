@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import lib.FileIO;
+import file.FileIO;
 
 public class day03 {
     public static void main(String[] args) {

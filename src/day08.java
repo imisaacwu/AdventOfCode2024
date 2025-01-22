@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import lib.Coord;
-import lib.Direction;
-import lib.Divider;
-import lib.FileIO;
-import lib.Grid;
+import file.FileIO;
+import grid.Divider;
+import grid.Grid;
+import structures.Coord;
+import structures.Direction;
 
 public class day08 {
     public static void main(String[] args) {

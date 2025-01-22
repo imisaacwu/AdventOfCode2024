@@ -2,12 +2,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import lib.Coord;
-import lib.Direction;
-import lib.Divider;
-import lib.FileIO;
-import lib.Grid;
-import lib.Tuple.Pair;
+import file.FileIO;
+import grid.Divider;
+import grid.Grid;
+import structures.Coord;
+import structures.Direction;
+import structures.Tuple.Pair;
 
 public class day06 {
     public static void main(String[] args) {
